@@ -1,0 +1,17 @@
+<h1>Заявка №<%= @order.id %></h1>
+
+<ul>
+  <li><strong>Имя:</strong> <%= @order.first_name %></li>
+  <li><strong>Фамилия:</strong> <%= @order.last_name %></li>
+  <li><strong>Отчество:</strong> <%= @order.middle_name %></li>
+  <li><strong>Телефон:</strong> <%= @order.phone %></li>
+  <li><strong>Email:</strong> <%= @order.email %></li>
+  <li><strong>Вес:</strong> <%= @order.weight %> кг</li>
+  <li><strong>Длина:</strong> <%= @order.length %> см</li>
+  <li><strong>Ширина:</strong> <%= @order.width %> см</li>
+  <li><strong>Высота:</strong> <%= @order.height %> см</li>
+  <li><strong>Пункт отправления:</strong> <%= @order.from %></li>
+  <li><strong>Пункт назначения:</strong> <%= @order.to %></li>
+  <li><strong>Расстояние:</strong> <%= @order.distance %> км</li>
+  <li><strong>Цена:</strong> <%= @order.price %> ₽</li>
+</ul>

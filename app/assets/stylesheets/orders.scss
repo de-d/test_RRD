@@ -1,0 +1,93 @@
+.form {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 24px;
+    background: #f8f8f8;
+    border-radius: 8px;
+
+    &__title {
+      text-align: center;
+      margin-bottom: 24px;
+    }
+
+    &__grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+
+    &__field {
+      display: flex;
+      flex-direction: column;
+    }
+
+    &__label {
+      font-weight: bold;
+      margin-bottom: 4px;
+    }
+
+    &__input {
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    &__actions {
+      margin-top: 24px;
+      text-align: center;
+    }
+
+    &__submit {
+      background: #007bff;
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 4px;
+      font-size: 16px;
+      cursor: pointer;
+
+      &:hover {
+        background: #0056b3;
+      }
+    }
+}
+
+.orders.show {
+    max-width: 700px;
+    margin: 40px auto;
+    padding: 20px;
+    background: #f9f9f9;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    font-family: "Segoe UI", sans-serif;
+    color: #333;
+
+    h1 {
+      text-align: center;
+      margin-bottom: 30px;
+      font-size: 28px;
+      color: #222;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+
+      li {
+        padding: 12px 0;
+        border-bottom: 1px solid #ddd;
+        display: flex;
+        justify-content: space-between;
+
+        strong {
+          color: #555;
+          min-width: 140px;
+          display: inline-block;
+        }
+
+        &:last-child {
+          border-bottom: none;
+        }
+      }
+    }
+}
