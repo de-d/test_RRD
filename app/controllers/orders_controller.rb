@@ -7,7 +7,7 @@ class OrdersController < ApplicationController
     raw_params = order_params.to_h
     raw_params[:weight] = raw_params[:weight].to_i
     raw_params[:length] = raw_params[:length].to_i
-    raw_params[:width]  = raw_params[:width].to_i
+    raw_params[:width] = raw_params[:width].to_i
     raw_params[:height] = raw_params[:height].to_i
 
     @order = Order.new(raw_params)
@@ -26,7 +26,7 @@ class OrdersController < ApplicationController
     @order.price = result[:price]
 
     if @order.save
-      redirect_to @order, notice: 'Order was successfully created.'
+      redirect_to @order, notice: "Заказ был успешно создан."
     else
       render :new
     end

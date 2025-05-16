@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root 'orders#new'
+  root "orders#new"
 
   resources :orders, only: [:new, :create, :show, :index]
 
@@ -8,5 +8,5 @@ Rails.application.routes.draw do
   ActiveAdmin.routes(self)
 
   # Healthcheck
-  get "up" => "rails/health#show", as: :rails_health_check
+  get "up" => "rails/health#show", :as => :rails_health_check
 end

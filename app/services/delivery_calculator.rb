@@ -1,10 +1,10 @@
-require 'net/http'
-require 'uri'
-require 'json'
-require 'httparty'
+require "net/http"
+require "uri"
+require "json"
+require "httparty"
 
 class DeliveryCalculator
-  API_KEY = 'tqo5ppQiXJkSamQRVxnWGZu9Cd6SrH7IPrA3I6mxfKc04vIeUwQLR5UpmGEo4Nkn'
+  API_KEY = "tqo5ppQiXJkSamQRVxnWGZu9Cd6SrH7IPrA3I6mxfKc04vIeUwQLR5UpmGEo4Nkn"
 
   def initialize(weight:, length:, width:, height:, from:, to:)
     @weight = weight
@@ -41,8 +41,8 @@ class DeliveryCalculator
 
     if response.success?
       data = JSON.parse(response.body)
-      if data['rows'] && data['rows'][0] && data['rows'][0]['elements'] && data['rows'][0]['elements'][0] && data['rows'][0]['elements'][0]['distance']
-        return data['rows'][0]['elements'][0]['distance']['value'] / 1000
+      if data["rows"] && data["rows"][0] && data["rows"][0]["elements"] && data["rows"][0]["elements"][0] && data["rows"][0]["elements"][0]["distance"]
+        data["rows"][0]["elements"][0]["distance"]["value"] / 1000
       else
         raise "Ошибка в формате данных от API. Ответ: #{data}"
       end

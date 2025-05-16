@@ -1,6 +1,6 @@
 ActiveAdmin.register Order do
   permit_params :first_name, :last_name, :middle_name, :phone, :email,
-                :weight, :length, :width, :height, :from, :to, :distance, :price
+    :weight, :length, :width, :height, :from, :to, :distance, :price
 
   index do
     selectable_column
