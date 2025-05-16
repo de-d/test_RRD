@@ -4,26 +4,22 @@ class OrdersController < ApplicationController
   end
 
   def create
-    raw_params = order_params.to_h
-    raw_params[:weight] = raw_params[:weight].to_i
-    raw_params[:length] = raw_params[:length].to_i
-    raw_params[:width] = raw_params[:width].to_i
-    raw_params[:height] = raw_params[:height].to_i
+    @order = Order.new(order_params)
 
-    @order = Order.new(raw_params)
+    if @order.valid?
+      calculator = DeliveryCalculator.new(
+        weight: @order.weight,
+        length: @order.length,
+        width: @order.width,
+        height: @order.height,
+        from: @order.from,
+        to: @order.to
+      )
 
-    calculator = DeliveryCalculator.new(
-      weight: raw_params[:weight],
-      length: raw_params[:length],
-      width: raw_params[:width],
-      height: raw_params[:height],
-      from: raw_params[:from],
-      to: raw_params[:to]
-    )
-
-    result = calculator.call
-    @order.distance = result[:distance]
-    @order.price = result[:price]
+      result = calculator.call
+      @order.distance = result[:distance]
+      @order.price = result[:price]
+    end
 
     if @order.save
       redirect_to @order, notice: "Заказ был успешно создан."
