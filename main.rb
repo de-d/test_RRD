@@ -1,4 +1,4 @@
-require_relative 'delivery'
+require_relative "delivery"
 
 puts "Введите вес груза (кг):"
 weight = gets.to_i

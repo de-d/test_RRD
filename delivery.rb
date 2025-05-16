@@ -1,6 +1,6 @@
-require 'net/http'
-require 'uri'
-require 'json'
+require "net/http"
+require "uri"
+require "json"
 
 class Delivery
   def initialize(weight, length, width, height, distance)
@@ -25,7 +25,7 @@ class Delivery
 
     price = (price_per_km * @distance)
 
-    return {
+    {
       weight: @weight,
       length: @length,
       width: @width,
@@ -37,16 +37,15 @@ class Delivery
 end
 
 def fetch_distance(from, to)
-  api_key = 'tqo5ppQiXJkSamQRVxnWGZu9Cd6SrH7IPrA3I6mxfKc04vIeUwQLR5UpmGEo4Nkn'
+  api_key = "tqo5ppQiXJkSamQRVxnWGZu9Cd6SrH7IPrA3I6mxfKc04vIeUwQLR5UpmGEo4Nkn"
   url = URI("https://api.distancematrix.ai/maps/api/distancematrix/json?origins=#{URI.encode_www_form_component(from)}&destinations=#{URI.encode_www_form_component(to)}&key=#{api_key}")
 
   response = Net::HTTP.get(url)
   data = JSON.parse(response)
 
-  if data['rows'][0]['elements'][0]['status'] == 'OK'
-    distance_meters = data['rows'][0]['elements'][0]['distance']['value']
-    distance_km = distance_meters / 1000
-    return distance_km
+  if data["rows"][0]["elements"][0]["status"] == "OK"
+    distance_meters = data["rows"][0]["elements"][0]["distance"]["value"]
+    distance_meters / 1000
   else
     raise "Ошибка получения расстояния: #{data}"
   end

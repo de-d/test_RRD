@@ -1,5 +1,5 @@
-require 'minitest/autorun'
-require_relative 'delivery'
+require "minitest/autorun"
+require_relative "delivery"
 
 class DeliveryTest < Minitest::Test
   def test_small_volume

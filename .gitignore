@@ -1,0 +1,11 @@
+/public/assets
+
+.env*
+!.env.example
+
+/log/*
+/tmp/*
+
+.idea
+.vscode
+*.swp
